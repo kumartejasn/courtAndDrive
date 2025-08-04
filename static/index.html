@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Court Data Fetcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">Court Case Data Fetcher</h1>
+        
+        <form id="case-form" class="space-y-4">
+            <div>
+                <label for="case-type" class="block text-sm font-medium text-gray-700">Case Type</label>
+                <select id="case-type" name="case-type" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                    <option value="1">Civil Suit</option>
+                    <option value="2">Criminal Case</option>
+                    <option value="29">Rent Control</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="case-number" class="block text-sm font-medium text-gray-700">Case Number</label>
+                    <input type="text" id="case-number" name="case-number" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" required>
+                </div>
+                <div>
+                    <label for="case-year" class="block text-sm font-medium text-gray-700">Year</label>
+                    <select id="case-year" name="case-year" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm">
+                        </select>
+                </div>
+            </div>
+
+            <div class="flex items-end gap-4">
+                <div class="flex-grow">
+                    <label for="captcha-text" class="block text-sm font-medium text-gray-700">Enter CAPTCHA</label>
+                    <input type="text" id="captcha-text" name="captcha-text" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm" required>
+                </div>
+                <div id="captcha-container" class="border rounded-md p-1 bg-gray-200">
+                    <img id="captcha-image" src="" alt="CAPTCHA image" class="h-10">
+                </div>
+                <button type="button" id="refresh-captcha" class="p-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300">🔄</button>
+            </div>
+            
+            <button type="submit" id="submit-btn" class="w-full bg-blue-600 text-white p-3 rounded-md font-semibold hover:bg-blue-700 disabled:bg-blue-300">
+                Fetch Data
+            </button>
+        </form>
+
+        <div id="message-area" class="mt-4 text-center p-3 rounded-md hidden"></div>
+
+        <div id="results-area" class="mt-6 border-t pt-6 hidden">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Case Details</h2>
+            <div id="results-content" class="space-y-2"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
